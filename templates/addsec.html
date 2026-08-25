@@ -5,10 +5,10 @@
 	{% csrf_token %}
 	<fieldset>
 		<h1 class="tablink" onclick="openPage('new')" id="defaultOpen">+ Add Section</h1>
-		<a href="{% url 'editsection' %}"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit">Edit Section</h1></a>
+		<a href="{% url 'editsection' %}" class="no-underline"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit"><i class="fas fa-pen"></i> Edit Section</h1></a>
 		<div class="tabcontent" id="new">
 			{{ form.as_p }}
-		<input type="submit" value="Submit" class="submit">
+		<input type="submit" value="Submit" class="submit-btn">
 		</div>
 	</fieldset>
 </form>

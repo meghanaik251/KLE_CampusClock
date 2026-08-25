@@ -2,17 +2,37 @@
 {% block content %}
 {% load static %}
 
+
 <form method="post">
 	{% csrf_token %}
 	<fieldset>
 		<h1 class="tablink" onclick="openPage('new')" id="defaultOpen">+ Add Course</h1>
-		<a href="{% url 'editcourse' %}"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit">Edit Courses</h1></a>
+		<a href="{% url 'editcourse' %}" class="no-underline"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit"> <i class="fas fa-pen"></i> Edit Courses</h1></a>
 		<div class="tabcontent" id="new">
 			{{ form.as_p }}
-		<input type="submit" value="Submit" class="submit">
+			
+		<input type="submit" value="Submit" class="submit-btn">
 		</div>
 	</fieldset>
 </form>
+<!-- <form method="post" class="form-container">
+    {% csrf_token %}
+    <fieldset >
+        <h1 class="tablink" onclick="openPage('new')" id="defaultOpen">+ Add Course</h1>
+        
+        <a href="{% url 'editcourse' %}" class="no-underline edit-link">
+            <h1 class="tablink" onclick="openPage('edit')" id="link_to_edit">
+                <i class="fas fa-pen"></i> Edit Courses
+            </h1>
+        </a>
+
+        <div class="tabcontent" id="new">
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>
+    </fieldset>
+</form> -->
+
 <div class="img">
 
 </div>

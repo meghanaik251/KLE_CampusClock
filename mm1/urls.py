@@ -5,6 +5,13 @@ from. import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('timetable_generation/', views.timetable, name='timetable'),
+    path('timetable_generationwwt/', views.timetablewwt, name='timetablewwt'),
+
+    # PDF download routes -- render the SAME schedule that's currently on
+    # screen (stored in session by the two views above), not a fresh GA run.
+    path('download_timetable/', views.download_timetable_pdf, name='downloadtimetable'),
+    path('download_timetablewwt/', views.download_timetablewwt_pdf, name='downloadtimetablewwt'),
+
     path('add_room/', views.add_room, name='addroom'),
     path('add_instructor/', views.add_instructor, name='addinstructor'),
     path('instructor_list/', views.inst_list_view, name='editinstructor'),

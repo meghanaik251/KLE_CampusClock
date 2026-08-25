@@ -38,12 +38,19 @@ class CourseForm(ModelForm):
     class Meta:
         model = Course
         fields = ['course_number', 'course_name', 'max_numb_students', 'instructors']
+        widgets = {
+            'instructors': forms.CheckboxSelectMultiple(), 
+        }
 
 
 class DepartmentForm(ModelForm):
     class Meta:
         model = Department
         fields = ['dept_name', 'courses']
+        widgets = {
+            'courses': forms.CheckboxSelectMultiple(),  # Use this widget for better handling
+        }
+    
 
 
 class SectionForm(ModelForm):

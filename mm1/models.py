@@ -9,14 +9,18 @@ from datetime import timedelta, date
 
 
 time_slots = (
-    ('9:30 - 10:30', '9:30 - 10:30'),
-    ('10:30 - 11:30', '10:30 - 11:30'),
-    ('11:30 - 12:30', '11:30 - 12:30'),
-    ('12:30 - 1:30', '12:30 - 1:30'),
-    ('2:30 - 3:30', '2:30 - 3:30'),
-    ('3:30 - 4:30', '3:30 - 4:30'),
-    ('4:30 - 5:30', '4:30 - 5:30'),
+    ('08:00 - 09:00', '08:00 - 09:00'),
+    ('09:00 - 10:00', '09:00 - 10:00'),
+    ('10:00 - 10:15', '10:00 - 10:15'),
+    ('10:15 - 11:15', '10:15 - 11:15'),
+    ('11:15 - 12:15', '11:15 - 12:15'),
+    ('12:15 - 01:30', '12:15 - 01:30'),
+    ('01:30 - 02:30', '01:30 - 02:30'),
+    ('02:30 - 03:30', '02:30 - 03:30'),
+    ('03:30 - 04:30', '03:30 - 04:30'),
+    ('04:30 - 05:30', '04:30 - 05:30'),
 )
+ 
 DAYS_OF_WEEK = (
     ('Monday', 'Monday'),
     ('Tuesday', 'Tuesday'),
@@ -26,7 +30,7 @@ DAYS_OF_WEEK = (
     ('Saturday', 'Saturday'),
 )
 
-POPULATION_SIZE = 10
+POPULATION_SIZE = 9
 NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
 MUTATION_RATE = 0.1
@@ -58,10 +62,11 @@ class MeetingTime(models.Model):
 
 
 class Course(models.Model):
-    course_number = models.CharField(max_length=5, primary_key=True)
+    course_number = models.CharField(max_length=9, primary_key=True)
     course_name = models.CharField(max_length=40)
     max_numb_students = models.CharField(max_length=65)
     instructors = models.ManyToManyField(Instructor)
+
 
     def __str__(self):
         return f'{self.course_number} {self.course_name}'

@@ -17,12 +17,16 @@
 		</div>
 	<div class="txt">
 		<h2>Timetable Generator</h2>
-		<p>	Add your university class details and generate Time Table.</p>
+		<p>	Add your Department class details and generate Time Table.</p>
 	</div>
 	<div class="crdbtn">
-		<a href="{% url 'timetable' %}" class="btn">Generate Timetable</a>
-
+		<a href="{% url 'timetable' %}" class="btn">Generate Timetable (Section-Wise Timetable)</a>
 	</div>
+	<div class="crdbtn">
+		<a href="{% url 'timetablewwt' %}" class="btn">Generate Timetable (Weekdays-Wise Timetable)</a>
+	</div>
+	
+	
 </div>
 {% endblock %}
 

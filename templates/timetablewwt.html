@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<a href="{% url 'downloadtimetablewwt' %}" class="downloadb no-underline">Download PDF</a>
+
+{% for section in sections %}
+<h2 class="secHead">{{ section.section_id }} ({{ section.department }})</h2>
+    <table class="table2">
+        <colgroup>
+            <col><col><col><col>
+            <col class="break-column">
+            <col><col>
+            <col class="break-column">
+            <col><col><col><col>
+        </colgroup>
+        <tr>
+            <th>Day</th>
+            <th>DIV</th>
+            <th>8:00 - 9:00</th>
+            <th>9:00 - 10:00</th>
+            <th>10:00 - 10:15</th>
+            <th>10:15 - 11:15</th>
+            <th>11:15 - 12:15</th>
+            <th>12:15 - 01:30</th>
+            <th>01:30 - 02:30</th>
+            <th>02:30 - 03:30</th>
+            <th>03:30 - 04:30</th>
+            <th>04:30 - 05:30</th>
+        </tr>
+
+        {% for day in days_of_week %}
+            <tr>
+                <th>{{ day }}</th>
+                <th>{{ section.section_id }}</th>
+
+                {% for slot in time_slots %}
+                <td>
+                    {% if slot == "10:00 - 10:15" or slot == "12:15 - 01:30" %}
+                        <div class="break-cell"></div>
+                    {% else %}
+                        {% for class in schedule %}
+                            {% if class.section == section.section_id and class.meeting_day == day and class.meeting_slot == slot %}
+                                <strong>{{ class.course }}</strong><br>
+                                {{ class.instructor }}<br>
+                                {{ class.room }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+
+{% endblock %}

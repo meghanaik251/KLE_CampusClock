@@ -3,12 +3,12 @@
 {% load static %}
 <form method="post">
 	{% csrf_token %}
-	<fieldset>
+	<fieldset >
 		<h1 class="tablink" onclick="openPage('new')" id="defaultOpen">+ Add Department</h1>
-		<a href="{% url 'editdepartment' %}"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit">Edit Department</h1></a>
+		<a href="{% url 'editdepartment' %}" class="no-underline"><h1 class="tablink" onclick="openPage('edit')" id="link_to_edit"><i class="fas fa-pen"></i> Edit Department</h1></a>
 		<div class="tabcontent" id="new">
 			{{ form.as_p }}
-		<input type="submit" value="Submit" class="submit">
+		<input type="submit" value="Submit" class="submit-btn">
 		</div>
 	</fieldset>
 </form>

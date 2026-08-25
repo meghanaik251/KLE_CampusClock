@@ -128,3 +128,99 @@
 
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+.............................................
+.......................................
+mgn..................................
+{% for section in sections %}
+<!-- <h2 class="secHead">{{ section.section_id }} ({{ section.department }})</h2> -->
+    <table class="table2">
+        <colgroup>
+            <col><col><col><col><col class="break-column"><col><col><col class="break-column"><col><col><col><col><col><col>
+        </colgroup>
+        <tr>
+            <th>Day</th>
+            <th>DIV</th>
+            <th>8:00 - 9:00</th>
+            <th>9:00 - 10:00</th>
+            <th>10:00 - 10:15</th>
+            <!-- <th style="background-color: #b80c38;">Break</th> 10:00 - 10:15 -->
+            <th>10:15 - 11:15</th>
+            <th>11:15 - 12:15</th>
+            <th>12:15 - 01:30 </th>
+            <!-- <th style="background-color: #b80c38;">Break</th> 12:15 - 01:30 -->
+            <th>01:30 - 02:30</th>
+            <th>02:30 - 03:30</th>
+            <th>03:30 - 04:30</th>
+            <th>04:30 - 05:30</th>
+        </tr>
+        
+        <!-- Loop through each day for the given section -->
+        {% for day in days_of_week %}
+            <tr>
+                <th>{{ day }}</th>
+                <th>{{ section.section_id }}</th>
+                
+                {% for slot in time_slots %}
+                    <td>
+                        <!-- Check if the time slot is a break -->
+                        {% if slot == "10:00 - 10:15" or slot == "12:15 - 01:30" %}
+                            <div style="background-color: #b80c38; ">
+                            </div>
+                        {% else %}
+                            <!-- Display class details if it's not a break -->
+                            {% for class in schedule %}
+                                {% if class.section == section.section_id  %}
+                                    <strong>{{ class.course }}</strong> <br>
+                                    {{ class.instructor }} <br>
+                                    {{ class.room }}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+
+
+
+.......................# def timetablewwt(request):
+#     schedule = []
+#     population = Population(POPULATION_SIZE)
+#     generation_num = 0
+#     MAX_GENERATIONS = 2
+
+#     population.get_schedules().sort(key=lambda x: x.get_fitness(), reverse=True)
+#     geneticAlgorithm = GeneticAlgorithm()
+
+#     while population.get_schedules()[0].get_fitness() != 1.0 and generation_num < MAX_GENERATIONS:
+#         generation_num += 1
+#         print('\n> Generation #' + str(generation_num))
+#         population = geneticAlgorithm.evolve(population)
+#         population.get_schedules().sort(key=lambda x: x.get_fitness(), reverse=True)
+#         schedule = population.get_schedules()[0].get_classes()
+
+#     days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+#     time_slots = [
+#         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 10:15", "10:15 - 11:15", "11:15 - 12:15",
+#         "12:15 - 01:30", "01:30 - 02:30", "02:30 - 03:30", "03:30 - 04:30", "04:30 - 05:30"
+#     ]
+
+#     return render(request, 'timetablewwt.html', {
+#         'schedule': schedule,
+#         'sections': Section.objects.all(),
+#         'days_of_week': days_of_week,
+#         'time_slots': time_slots,
+#     })
+

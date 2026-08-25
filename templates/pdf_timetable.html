@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    @page {
+        size: A4 portrait;
+        margin: 1.5cm;
+    }
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #222;
+    }
+    h1 {
+        color: #b80c38;
+        font-size: 16pt;
+        margin-bottom: 2pt;
+    }
+    h2 {
+        color: #b80c38;
+        font-size: 12pt;
+        margin-top: 14pt;
+        margin-bottom: 4pt;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10pt;
+    }
+    th, td {
+        border: 1px solid #999999;
+        padding: 5pt 6pt;
+        font-size: 9pt;
+        text-align: left;
+    }
+    thead th, tr th:first-child {
+        background-color: #b80c38;
+        color: #ffffff;
+    }
+    tr:nth-child(even) td {
+        background-color: #f7f7f7;
+    }
+</style>
+</head>
+<body>
+    <h1>Automatic Timetable Generation For Class</h1>
+    <p style="font-size:9pt;color:#777;margin-top:0;">KLE Technological University, Hubli &mdash; Section-Wise Timetable</p>
+
+    {% for section in sections %}
+        <h2>{{ section.section_id }} ({{ section.department }})</h2>
+        <table>
+            <tr>
+                <th>Section Id</th>
+                <th>Course</th>
+                <th>Class Room</th>
+                <th>Instructor</th>
+                <th>Class Timing</th>
+            </tr>
+            {% for class in schedule %}
+                {% if class.section_name == section.section_id %}
+                <tr>
+                    <th>{{ class.section }}</th>
+                    <td>{{ class.course }}</td>
+                    <td>{{ class.room }}</td>
+                    <td>{{ class.instructor }}</td>
+                    <td>{{ class.meeting_time }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+</body>
+</html>

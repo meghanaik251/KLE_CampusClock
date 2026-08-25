@@ -1,0 +1,58 @@
+/* ============================================================
+   Weekdays-wise timetable: neat alignment fixes
+   Append this block to the END of your existing style.css
+   (it overrides the earlier .table2 rules further down the file,
+   which is what CSS does with later same-specificity rules).
+   ============================================================ */
+
+.table2 {
+    table-layout: fixed;      /* forces every column to the SAME width      */
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.table2 th,
+.table2 td {
+    border: 1px solid #ddd;
+    padding: 6px 4px;
+    font-size: 12px;
+    vertical-align: top;
+    word-wrap: break-word;    /* long course names wrap instead of overflowing */
+    overflow-wrap: break-word;
+}
+
+.table2 thead th,
+.table2 tr th {
+    background-color: #b80c38;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* the two DIV/Day header cells at the start of each row */
+.table2 tr th:first-child,
+.table2 tr th:nth-child(2) {
+    background-color: #f4c2c2;
+    color: #b80c38;
+}
+
+.table2 .break-cell {
+    background-color: #b80c38;
+    height: 100%;
+    min-height: 20px;
+}
+
+/* ensures colors survive Ctrl+P / browser print too, as a fallback
+   next to the server-side PDF download button */
+@media print {
+    .table1, .table2, .table1 *, .table2 * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    .downloadb {
+        display: none;  /* hide the download button itself when printing */
+    }
+}

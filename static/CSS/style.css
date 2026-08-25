@@ -1,16 +1,97 @@
 /* Base Styles */
 body {
-	/* background-color: gray; */
-    background-color: rgb(248, 248, 248);
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+}
+
+/* Form container */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Fieldset style */
+.form-fieldset {
+    border: none;
+}
+
+/* Header styles */
+.tablink {
+    color: #b80c38;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.tablink:hover {
+    color: #e84153;
+}
+
+/* No underline link */
+.no-underline {
+    text-decoration: none;
+}
+
+/* Edit courses link */
+.edit-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.edit-link h1 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #b80c38;
+}
+
+.edit-link h1 i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* Form inputs */
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit button,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, */
+.submit-btn {
+    background-color: #b80c38;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e84153;
 }
 
 /* Main Container */
 .main {
     width: 85%;
-	height: 85vh;
+    height: 85vh;
     margin: auto;
     /* background: #fff; */
     padding: 20px;
@@ -48,7 +129,7 @@ body {
 .header .logo h2 {
     color: #333;
     margin: 0;
-	justify-content: end;
+    justify-content: end;
 }
 
 .header .logo h4 {
@@ -93,30 +174,55 @@ nav.nav_items ul li a:hover {
     padding: 20px;
 }
 
-.table1{
+.table1 {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
     overflow: hidden;
-  }
-  
-  .table1 td, th{
-      border-top: 0px solid #ECF0F1;
-      padding: 10px;
-    }
-  
-  .table1 th{
-      background-color: #1ca4a4;
-      color: #fff;
-    }
+}
 
- 
+.table1 td,
+th {
+    border-top: 0px solid #ECF0F1;
+    padding: 10px;
+}
+
+.table1 th {
+    background-color: #b80c38;
+    color: #fff;
+}
+
+
+.table2 {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    overflow: hidden;
+}
+
+.table2 td,
+th {
+    border-top: 0px solid #ECF0F1;
+    padding: 10px;
+}
+
+.table2 th {
+    background-color: #b80c38;
+    color: #fff;
+}
+
+
 /* Footer Styles */
 .footer {
-    text-align: center;
+    /* text-align: center;
     margin-top: 20px;
     color: #777;
-    position: fixed;
+    position: fixed; */
+
+    text-align: center;
+    margin-top: 24px;
+    color: #777;
+
     /* background: #343a40;
     color: white;
     padding: 20px;
@@ -126,3 +232,100 @@ nav.nav_items ul li a:hover {
     width: 100%; */
 }
 
+.crdbtn {
+    display: inline-block; /* Align the buttons side by side */
+    margin: 10px; /* Add space between buttons */
+    text-align: center;
+}
+
+/* Button Styling */
+.crdbtn .btn {
+    display: inline-block;
+    padding: 12px 20px; /* Adjust padding for the button size */
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; /* Text color */
+    background-color: #b80c38;
+    ; /* Background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+/* Hover and Focus Effect */
+.crdbtn .btn:hover, .crdbtn .btn:focus {
+    background-color: #2f9d2f; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight move up effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow */
+}
+
+/* Active Button State */
+.crdbtn .btn:active {
+    background-color: #1b591b; /* Even darker shade for active state */
+    transform: translateY(0); /* Reset transform */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow */
+}
+
+.break-column {
+    background-color: #b80c38; 
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Pale Red Button Style */
+.tablink {
+    background-color: #f4c2c2; /* Pale red background color */
+    color: #b80c38; /* Darker red text color */
+    padding: 10px 20px; /* Padding around the button */
+    border: 2px solid #b80c38; /* Border color matching the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for the text */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Cursor change on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+}
+
+/* Hover Effect */
+.tablink:hover {
+    background-color: #b80c38; /* Darker red background on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Active Button State */
+.tablink:active {
+    background-color: #94082b; /* Even darker red on click */
+    border-color: #94082b; /* Matching border color on click */
+}
+
+.downloadb {
+    background-color: #f7d358; 
+    color: #5a5a5a; 
+    padding: 10px 20px; 
+    border: 2px solid #e6b800; 
+    border-radius: 5px; 
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.downloadb:hover {
+    background-color: #e6b800; 
+    color: #ffffff; 
+}
+
+.downloadb:active {
+    background-color: #d4a017; 
+    border-color: #d4a017; 
+}
+
+a.no-underline {
+    text-decoration: none;
+}
+
+fieldset {
+    border:none;
+}
