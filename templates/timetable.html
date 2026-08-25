@@ -1,23 +1,15 @@
-
-
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
 
-
-<h2 class="downloadb" onclick="print()">Download/print PDF</h2>
+<a href="{% url 'downloadtimetable' %}" class="downloadb no-underline">Download PDF</a>
 
 {% for section in sections %}
 <h2 class="secHead">{{ section.section_id }} ({{ section.department }})</h2>
 
     <table class="table1">
       <colgroup>
-        <col >
-        <col >
-        <col >
-        <col >
-        <col >
-        <col >
+        <col><col><col><col><col>
       </colgroup>
       <tr>
         <th>Section Id</th>
